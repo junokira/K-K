@@ -32,8 +32,8 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      min-height: 100vh;
-      overflow: auto;
+      height: 100vh;
+      overflow: hidden;
       text-align: center;
       transition: background-color 0.5s, color 0.5s;
     }
@@ -126,8 +126,8 @@
     /* Mobile adjustments */
     @media (max-width: 768px) {
       body {
-        min-height: 100vh;
-        overflow: auto;
+        height: 100vh;
+        overflow: hidden;
       }
 
       .logo {
@@ -136,8 +136,8 @@
       }
 
       .main-content {
-        padding-top: 120px; /* Adjusted for logo height */
-        padding-bottom: 80px; /* Adjusted for footer height */
+        padding-top: 100px; /* Reduced to center content better */
+        padding-bottom: 60px; /* Reduced to center content better */
       }
 
       footer {
@@ -192,7 +192,7 @@
 
   <script>
     // Glitch effect for the title
-    const targetText = "KWALITY & KLARITY.";
+    const targetText = "KWALITY & KLARITY";
     const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*.";
     let displayText = Array(targetText.length).fill(" ");
     const asciiTextEl = document.getElementById("ascii-text");
