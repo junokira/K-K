@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <meta name="description" content="Kwality & Klarity - Countdown to our launch on April 4, 2025. Follow us on Instagram, X, and YouTube for updates!" />
   <meta name="keywords" content="Kwality & Klarity, countdown, launch, April 4 2025, social media, Instagram, X, YouTube" />
   <meta name="author" content="Kwality & Klarity" />
@@ -142,7 +142,7 @@
       body {
         height: 100vh;
         overflow: hidden;
-        padding-bottom: 80px; /* Add padding to ensure footer is visible */
+        padding-bottom: calc(120px + env(safe-area-inset-bottom)); /* Increased padding with safe-area-inset-bottom */
       }
 
       .logo {
@@ -152,7 +152,7 @@
 
       .main-content {
         padding-top: 100px;
-        padding-bottom: 40px; /* Reduced to make space for footer */
+        padding-bottom: 40px;
       }
 
       h1 {
@@ -166,7 +166,7 @@
       }
 
       footer {
-        bottom: 20px; /* Adjusted to account for browser UI */
+        bottom: calc(20px + env(safe-area-inset-bottom)); /* Adjusted to account for safe area */
         font-size: 0.9rem;
       }
 
