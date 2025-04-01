@@ -68,8 +68,8 @@
       align-items: center;
       justify-content: center;
       flex-grow: 1;
-      padding-top: 15vh; /* Proportional to viewport height */
-      padding-bottom: 10vh; /* Proportional to viewport height */
+      padding-top: 15vh;
+      padding-bottom: 10vh;
       z-index: 1;
     }
 
@@ -142,6 +142,7 @@
       body {
         height: 100vh;
         overflow: hidden;
+        padding-bottom: 80px; /* Add padding to ensure footer is visible */
       }
 
       .logo {
@@ -151,7 +152,7 @@
 
       .main-content {
         padding-top: 100px;
-        padding-bottom: 60px;
+        padding-bottom: 40px; /* Reduced to make space for footer */
       }
 
       h1 {
@@ -165,7 +166,7 @@
       }
 
       footer {
-        bottom: 10px;
+        bottom: 20px; /* Adjusted to account for browser UI */
         font-size: 0.9rem;
       }
 
@@ -229,7 +230,7 @@
       // Reset drops array to match new column count
       drops.length = 0;
       for (let x = 0; x < columns; x++) {
-        drops[x] = Math.random() * canvas.height / fontSize; // Start at random heights
+        drops[x] = Math.random() * canvas.height / fontSize;
       }
     }
 
@@ -244,15 +245,15 @@
 
     // Adjust font size based on screen width for better scaling
     if (window.innerWidth > 1200) {
-      fontSize = 12; // Slightly larger on big screens
+      fontSize = 12;
     } else if (window.innerWidth < 768) {
-      fontSize = 8; // Slightly smaller on mobile
+      fontSize = 8;
     }
 
     // Recalculate columns after setting fontSize
     columns = Math.floor(canvas.width / fontSize);
     for (let x = 0; x < columns; x++) {
-      drops[x] = Math.random() * canvas.height / fontSize; // Start at random heights
+      drops[x] = Math.random() * canvas.height / fontSize;
     }
 
     function draw() {
