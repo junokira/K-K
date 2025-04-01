@@ -30,13 +30,13 @@
       color: black;
       display: flex;
       flex-direction: column;
-      justify-content: center;
+      justify-content: space-between;
       align-items: center;
-      height: 100vh;
-      overflow: hidden;
+      min-height: 100vh;
       text-align: center;
       transition: background-color 0.5s, color 0.5s;
       position: relative;
+      padding: 20px 0;
     }
 
     body.inverted {
@@ -55,8 +55,6 @@
     }
 
     .logo {
-      position: absolute;
-      top: 20px;
       width: 150px;
       height: auto;
       z-index: 1;
@@ -68,8 +66,7 @@
       align-items: center;
       justify-content: center;
       flex-grow: 1;
-      padding-top: 15vh;
-      padding-bottom: 10vh;
+      padding: 15vh 0 10vh;
       z-index: 1;
     }
 
@@ -96,12 +93,12 @@
     }
 
     footer {
-      position: absolute;
-      bottom: 20px;
       font-size: 0.9rem;
       text-align: center;
       width: 100%;
       z-index: 1;
+      position: absolute;
+      bottom: 20px;
     }
 
     .footer-email {
@@ -140,19 +137,17 @@
     /* Mobile adjustments */
     @media (max-width: 768px) {
       body {
-        height: 100vh;
-        overflow: hidden;
-        padding-bottom: calc(120px + env(safe-area-inset-bottom)); /* Increased padding with safe-area-inset-bottom */
+        min-height: 100vh;
+        padding-bottom: 20px; /* Reduced since footer is now in flow */
       }
 
       .logo {
-        top: 10px;
         width: 150px;
       }
 
       .main-content {
-        padding-top: 100px;
-        padding-bottom: 40px;
+        padding-top: 80px; /* Adjusted for mobile */
+        padding-bottom: 20px;
       }
 
       h1 {
@@ -166,8 +161,8 @@
       }
 
       footer {
-        bottom: calc(20px + env(safe-area-inset-bottom)); /* Adjusted to account for safe area */
-        font-size: 0.9rem;
+        position: static; /* Remove absolute positioning on mobile */
+        margin-top: 20px; /* Add spacing above footer */
       }
 
       .footer-email {
@@ -197,7 +192,6 @@
     <div id="countdown" aria-live="polite"></div>
     <div id="ascii-glitch"></div>
   </div>
-
   <footer>
     <div class="footer-email">
       <a href="mailto:info@kwalityandklarity.com" style="color: inherit; text-decoration: none;">info@kwalityandklarity.com</a>
@@ -299,7 +293,7 @@
     });
 
     // Glitch effect for the title
-    const targetText = "KWALITY & KLARITY";
+    const targetText = "KWALITY & KLARITY.";
     const charsGlitch = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*.";
     let displayText = Array(targetText.length).fill(" ");
     const asciiTextEl = document.getElementById("ascii-text");
