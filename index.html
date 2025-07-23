@@ -7,12 +7,12 @@
 
   <!-- SEO Meta Tags -->
   <meta name="description" content="Kwality & Klarity is a South African online/digital publication platform founded by Tumisho Mathekgane. The platform focuses on documentation & promotion of young artist with music, fashion or related pop cultures.">
-  <meta name="keywords" content="Kwality & Klarity, kwality, klarity, south african media, business">
+  <meta name="keywords" content="Kwality & Klarity, quality, clarity, business, services, newsletter, updates">
   <link rel="canonical" href="https://www.kwalityandklarity.com/"> <!-- Replace with your actual domain -->
   <meta name="robots" content="index, follow">
 
   <!-- Open Graph / Facebook / LinkedIn -->
-  <meta property="og:title" content="Kwality & Klarity - Coming Soon">
+  <meta property="og:title" content="Kwality & Klarity">
   <meta property="og:description" content="Kwality & Klarity is a South African online/digital publication platform founded by Tumisho Mathekgane. The platform focuses on documentation & promotion of young artist with music, fashion or related pop cultures.">
   <meta property="og:image" content="https://i.ibb.co/Fqd8fPfS/k-k-png.png"> <!-- Use your main logo image URL -->
   <meta property="og:url" content="https://www.kwalityandklarity.com/"> <!-- Replace with your actual domain -->
@@ -46,14 +46,8 @@
       height: 100vh;
       overflow: hidden;
       text-align: center;
-      transition: background-color 0.5s, color 0.5s;
       position: relative;
     }
-
-    /* Removed .inverted class as body starts inverted */
-    /* Removed body.transitioning #ascii-rain and @keyframes ascii-glitch as they are no longer needed */
-
-    /* Removed #ascii-rain styles as the canvas is removed */
 
     .logo {
       position: absolute;
@@ -73,8 +67,6 @@
       padding-bottom: 10vh;
       z-index: 1;
     }
-
-    /* Removed h1 and countdown styles as they are no longer needed */
 
     #ascii-glitch {
       display: block; /* Always show the glitch content */
@@ -99,7 +91,7 @@
       padding: 0 20px;
     }
 
-    .newsletter-section p {
+    .newsletter-section > p { /* Target the direct paragraph for "Subscribe to our newsletter" */
       margin-bottom: 5px;
       font-size: 1.1rem;
       color: white;
@@ -136,7 +128,7 @@
       background-color: rgba(255, 255, 255, 0.15);
     }
 
-    .newsletter-form button {
+    .newsletter-form input[type="submit"] { /* Changed from button to input[type="submit"] */
       padding: 12px 25px;
       background-color: white; /* Changed to white */
       color: black; /* Changed to black for contrast */
@@ -150,10 +142,12 @@
       max-width: 300px; /* Match max-width of input */
     }
 
-    .newsletter-form button:hover {
+    .newsletter-form input[type="submit"]:hover { /* Changed from button to input[type="submit"] */
       background-color: #cccccc; /* Changed to a darker grey on hover */
       transform: translateY(-2px);
     }
+
+    /* Removed .newsletter-form p a styling as the element is removed */
 
     footer {
       position: absolute;
@@ -181,8 +175,6 @@
       justify-content: center;
       transition: color 0.5s;
     }
-
-    /* Removed inverted specific social icon styles as body is always inverted */
 
     .social-icons svg {
       width: 28px;
@@ -214,11 +206,9 @@
       }
 
       .newsletter-form input[type="email"],
-      .newsletter-form button {
-        max-width: 250px; /* Adjust for smaller screens */
+      .newsletter-form input[type="submit"] { /* Adjusted for smaller screens */
+        max-width: 250px;
       }
-
-      /* Removed h1 and countdown styles for mobile */
 
       footer {
         bottom: calc(90px + env(safe-area-inset-bottom, 20px));
@@ -227,11 +217,9 @@
     }
   </style>
 </head>
-<body class="inverted"> <!-- Ensure body starts with inverted class -->
-  <!-- Removed canvas element for ASCII rain -->
-  <img src="https://i.ibb.co/Jj74RR2Z/IMG-9717.png" alt="Kwality & Klarity Logo" class="logo" id="logo"> <!-- New logo directly -->
+<body class="inverted">
+  <img src="https://i.ibb.co/Jj74RR2Z/IMG-9717.png" alt="Kwality & Klarity Logo" class="logo" id="logo">
   <div class="main-content">
-    <!-- Removed h1 and countdown elements -->
     <div id="ascii-glitch">
         <img src="https://i.ibb.co/Fqd8fPfS/k-k-png.png" alt="New Logo" style="width: 450px; max-width: 90vw;">
     </div>
@@ -239,9 +227,16 @@
     <!-- Newsletter Email Signup Form -->
     <div class="newsletter-section">
       <p>Subscribe to our newsletter</p>
-      <form class="newsletter-form" action="YOUR_MAILERPRO_LITE_SUBMISSION_URL" method="POST">
-        <input type="email" name="email" placeholder="Enter your email" required>
-        <button type="submit">Sign Up</button>
+      <form
+        class="newsletter-form"
+        action="https://buttondown.com/api/emails/embed-subscribe/kwality_klarity"
+        method="post"
+        target="popupwindow"
+        onsubmit="window.open('https://buttondown.com/kwality_klarity', 'popupwindow')"
+      >
+        <input type="email" name="email" id="bd-email" placeholder="Enter your email" required />
+        <input type="submit" value="Subscribe" />
+        <!-- Removed "Powered by Buttondown" paragraph -->
       </form>
     </div>
   </div>
@@ -267,9 +262,6 @@
   </footer>
 
   <script>
-    // Removed all JavaScript code related to the ASCII rain animation
-    // (canvas, ctx, fontSize, columns, intenseMode, drops, chars, resizeCanvas, draw, setInterval, addEventListener for resize)
-
     // Initial setup for the new state
     const glitchEl = document.getElementById("ascii-glitch");
     const logoEl = document.getElementById("logo");
