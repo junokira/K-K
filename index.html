@@ -4,6 +4,30 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>Kwality & Klarity</title>
+
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Kwality & Klarity is a South African online/digital publication platform founded by Tumisho Mathekgane. The platform focuses on documentation & promotion of young artist with music, fashion or related pop cultures.">
+  <meta name="keywords" content="Kwality & Klarity, kwality, klarity, south african media, business">
+  <link rel="canonical" href="https://www.kwalityandklarity.com/"> <!-- Replace with your actual domain -->
+  <meta name="robots" content="index, follow">
+
+  <!-- Open Graph / Facebook / LinkedIn -->
+  <meta property="og:title" content="Kwality & Klarity - Coming Soon">
+  <meta property="og:description" content="Kwality & Klarity is a South African online/digital publication platform founded by Tumisho Mathekgane. The platform focuses on documentation & promotion of young artist with music, fashion or related pop cultures.">
+  <meta property="og:image" content="https://i.ibb.co/Fqd8fPfS/k-k-png.png"> <!-- Use your main logo image URL -->
+  <meta property="og:url" content="https://www.kwalityandklarity.com/"> <!-- Replace with your actual domain -->
+  <meta property="og:type" content="website">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@KwalityKlarity"> <!-- Replace with your Twitter handle if applicable -->
+  <meta name="twitter:title" content="Kwality & Klarity">
+  <meta name="twitter:description" content="Kwality & Klarity is a South African online/digital publication platform founded by Tumisho Mathekgane. The platform focuses on documentation & promotion of young artist with music, fashion or related pop cultures.">
+  <meta name="twitter:image" content="https://i.ibb.co/Fqd8fPfS/k-k-png.png"> <!-- Use your main logo image URL -->
+
+  <!-- Favicon -->
+  <link rel="icon" href="https://i.ibb.co/Jj74RR2Z/IMG-9717.png" type="image/png"> <!-- Use your small logo or a dedicated favicon -->
+
   <style>
     * {
       margin: 0;
@@ -13,8 +37,8 @@
     }
 
     body {
-      background-color: #fafafa;
-      color: black;
+      background-color: black; /* Start directly in inverted mode */
+      color: white; /* Start directly in inverted mode */
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -26,32 +50,10 @@
       position: relative;
     }
 
-    body.inverted {
-      background-color: black;
-      color: white;
-    }
+    /* Removed .inverted class as body starts inverted */
+    /* Removed body.transitioning #ascii-rain and @keyframes ascii-glitch as they are no longer needed */
 
-    body.transitioning #ascii-rain {
-      animation: ascii-glitch 1s ease;
-    }
-
-    @keyframes ascii-glitch {
-      0% { filter: brightness(2) contrast(2); transform: scale(1); }
-      25% { filter: brightness(3) contrast(2); transform: scale(1.01); }
-      50% { filter: brightness(3) contrast(3); transform: scale(1.02); }
-      75% { filter: brightness(4) contrast(2); transform: scale(1.01); }
-      100% { filter: brightness(1) contrast(1); transform: scale(1); }
-    }
-
-    #ascii-rain {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: -1;
-      pointer-events: none;
-    }
+    /* Removed #ascii-rain styles as the canvas is removed */
 
     .logo {
       position: absolute;
@@ -72,21 +74,10 @@
       z-index: 1;
     }
 
-    h1 {
-      font-size: 4rem;
-      margin-bottom: 1rem;
-      white-space: pre-wrap;
-      letter-spacing: 4px;
-      font-weight: bold;
-    }
-
-    #countdown {
-      font-size: 3rem;
-      letter-spacing: 4px;
-    }
+    /* Removed h1 and countdown styles as they are no longer needed */
 
     #ascii-glitch {
-      display: none;
+      display: block; /* Always show the glitch content */
     }
 
     #ascii-glitch img {
@@ -94,6 +85,74 @@
       max-width: 90vw;
       height: auto;
       margin-top: 1rem;
+    }
+
+    /* Newsletter Signup Form Styles */
+    .newsletter-section {
+      margin-top: 4rem; /* Increased margin-top to move it lower */
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      width: 100%;
+      max-width: 400px; /* Limit form width */
+      padding: 0 20px;
+    }
+
+    .newsletter-section p {
+      margin-bottom: 5px;
+      font-size: 1.1rem;
+      color: white;
+    }
+
+    .newsletter-form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      width: 100%;
+    }
+
+    .newsletter-form input[type="email"] {
+      padding: 12px 15px;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      background-color: rgba(255, 255, 255, 0.1);
+      color: white;
+      border-radius: 8px;
+      width: 100%;
+      max-width: 300px; /* Set max-width for input */
+      font-size: 1rem;
+      outline: none;
+      transition: border-color 0.3s, background-color 0.3s;
+      text-align: center; /* Centered placeholder text */
+    }
+
+    .newsletter-form input[type="email"]::placeholder {
+      color: rgba(255, 255, 255, 0.6);
+    }
+
+    .newsletter-form input[type="email"]:focus {
+      border-color: rgba(255, 255, 255, 0.6); /* Changed to a lighter white/grey */
+      background-color: rgba(255, 255, 255, 0.15);
+    }
+
+    .newsletter-form button {
+      padding: 12px 25px;
+      background-color: white; /* Changed to white */
+      color: black; /* Changed to black for contrast */
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1rem;
+      font-weight: bold;
+      transition: background-color 0.3s, transform 0.1s;
+      width: 100%; /* Make button full width of its container */
+      max-width: 300px; /* Match max-width of input */
+    }
+
+    .newsletter-form button:hover {
+      background-color: #cccccc; /* Changed to a darker grey on hover */
+      transform: translateY(-2px);
     }
 
     footer {
@@ -116,26 +175,20 @@
     .social-icons a {
       margin: 0 12px;
       text-decoration: none;
-      color: black;
+      color: white; /* Always white for inverted mode */
       display: inline-flex;
       align-items: center;
       justify-content: center;
       transition: color 0.5s;
     }
 
-    body.inverted .social-icons a {
-      color: white;
-    }
+    /* Removed inverted specific social icon styles as body is always inverted */
 
     .social-icons svg {
       width: 28px;
       height: 28px;
-      fill: black;
+      fill: white; /* Always white for inverted mode */
       transition: fill 0.5s;
-    }
-
-    body.inverted .social-icons svg {
-      fill: white;
     }
 
     @media (max-width: 768px) {
@@ -155,15 +208,17 @@
         padding-bottom: 40px;
       }
 
-      h1 {
-        font-size: 2rem;
-        letter-spacing: 2px;
+      .newsletter-section {
+        margin-top: 3rem; /* Adjusted for smaller screens */
+        max-width: 90%; /* Adjust for smaller screens */
       }
 
-      #countdown {
-        font-size: 1.5rem;
-        letter-spacing: 2px;
+      .newsletter-form input[type="email"],
+      .newsletter-form button {
+        max-width: 250px; /* Adjust for smaller screens */
       }
+
+      /* Removed h1 and countdown styles for mobile */
 
       footer {
         bottom: calc(90px + env(safe-area-inset-bottom, 20px));
@@ -172,13 +227,23 @@
     }
   </style>
 </head>
-<body>
-  <canvas id="ascii-rain"></canvas>
-  <img src="https://i.ibb.co/fGZt3bQb/k-k-black.webp" alt="Kwality & Klarity Logo" class="logo" id="logo">
+<body class="inverted"> <!-- Ensure body starts with inverted class -->
+  <!-- Removed canvas element for ASCII rain -->
+  <img src="https://i.ibb.co/Jj74RR2Z/IMG-9717.png" alt="Kwality & Klarity Logo" class="logo" id="logo"> <!-- New logo directly -->
   <div class="main-content">
-    <h1 id="ascii-text">KWALITY & KLARITY</h1>
-    <div id="countdown" aria-live="polite"></div>
-    <div id="ascii-glitch"></div>
+    <!-- Removed h1 and countdown elements -->
+    <div id="ascii-glitch">
+        <img src="https://i.ibb.co/Fqd8fPfS/k-k-png.png" alt="New Logo" style="width: 450px; max-width: 90vw;">
+    </div>
+
+    <!-- Newsletter Email Signup Form -->
+    <div class="newsletter-section">
+      <p>Subscribe to our newsletter</p>
+      <form class="newsletter-form" action="YOUR_MAILERPRO_LITE_SUBMISSION_URL" method="POST">
+        <input type="email" name="email" placeholder="Enter your email" required>
+        <button type="submit">Sign Up</button>
+      </form>
+    </div>
   </div>
 
   <footer>
@@ -202,117 +267,16 @@
   </footer>
 
   <script>
-    const canvas = document.getElementById("ascii-rain");
-    const ctx = canvas.getContext("2d");
+    // Removed all JavaScript code related to the ASCII rain animation
+    // (canvas, ctx, fontSize, columns, intenseMode, drops, chars, resizeCanvas, draw, setInterval, addEventListener for resize)
 
-    let fontSize = 10;
-    let columns = 0;
-    let intenseMode = false;
-    let drops = [];
-    const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*.";
-
-    function resizeCanvas() {
-      canvas.height = window.innerHeight;
-      canvas.width = window.innerWidth;
-      columns = Math.floor(canvas.width / fontSize);
-      drops = Array(columns).fill(0).map(() => Math.random() * canvas.height / fontSize);
-    }
-
-    resizeCanvas();
-
-    function draw() {
-      const isInverted = document.body.classList.contains("inverted");
-
-      ctx.fillStyle = isInverted ? "rgba(0,0,0,0.05)" : "rgba(250,250,250,0.05)";
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-      ctx.fillStyle = intenseMode
-        ? (isInverted ? "rgba(255,255,255,0.8)" : "rgba(0,0,0,0.8)")
-        : (isInverted ? "rgba(255,255,255,0.3)" : "rgba(0,0,0,0.3)");
-
-      ctx.font = fontSize + "px monospace";
-
-      for (let i = 0; i < drops.length; i++) {
-        const text = chars.charAt(Math.floor(Math.random() * chars.length));
-        ctx.fillText(text, i * fontSize, drops[i] * fontSize);
-
-        if (drops[i] * fontSize > canvas.height && Math.random() > (intenseMode ? 0.9 : 0.975)) {
-          drops[i] = 0;
-        }
-
-        drops[i]++;
-      }
-    }
-
-    setInterval(draw, 33);
-    window.addEventListener("resize", resizeCanvas);
-
-    const targetText = "KWALITY & KLARITY";
-    const asciiTextEl = document.getElementById("ascii-text");
-    let displayText = Array(targetText.length).fill(" ");
-
-    function generateRandomASCII() {
-      for (let i = 0; i < targetText.length; i++) {
-        displayText[i] = (Math.random() > 0.9 || displayText[i] === targetText[i])
-          ? targetText[i]
-          : chars[Math.floor(Math.random() * chars.length)];
-      }
-      asciiTextEl.innerText = displayText.join("");
-      if (displayText.join("") !== targetText) {
-        setTimeout(generateRandomASCII, 100);
-      } else {
-        setTimeout(() => {
-          displayText = Array(targetText.length).fill(" ");
-          generateRandomASCII();
-        }, 2000);
-      }
-    }
-
-    generateRandomASCII();
-
-    const countdownEl = document.getElementById("countdown");
+    // Initial setup for the new state
     const glitchEl = document.getElementById("ascii-glitch");
     const logoEl = document.getElementById("logo");
-    const endTime = new Date("April 4, 2025 00:00:00").getTime();
 
-    function getTimeRemaining() {
-      const now = new Date().getTime();
-      const distance = endTime - now;
-
-      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-      return { distance, days, hours, minutes, seconds };
-    }
-
-    function updateCountdown() {
-      const { distance, days, hours, minutes, seconds } = getTimeRemaining();
-
-      if (distance <= 0) {
-        document.body.classList.add("transitioning");
-        intenseMode = true;
-
-        setTimeout(() => {
-          countdownEl.style.display = "none";
-          asciiTextEl.style.display = "none";
-          glitchEl.style.display = "block";
-          document.body.classList.remove("transitioning");
-          document.body.classList.add("inverted");
-          logoEl.src = "https://i.ibb.co/Jj74RR2Z/IMG-9717.png";
-          glitchEl.innerHTML = `
-            <img src="https://i.ibb.co/Fqd8fPfS/k-k-png.png" alt="New Logo" style="width: 450px; max-width: 90vw;">
-          `;
-          setTimeout(() => { intenseMode = false; }, 1500);
-        }, 1200);
-      } else {
-        countdownEl.innerHTML = `${days}D ${hours}H ${minutes}M ${seconds}S`;
-        setTimeout(updateCountdown, 1000);
-      }
-    }
-
-    updateCountdown();
+    // Ensure the glitch image is displayed and logo is correct from the start
+    glitchEl.style.display = "block";
+    logoEl.src = "https://i.ibb.co/Jj74RR2Z/IMG-9717.png"; // Set the white logo
   </script>
 </body>
 </html>
