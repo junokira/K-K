@@ -147,7 +147,28 @@
       transform: translateY(-2px);
     }
 
-    /* Removed .newsletter-form p a styling as the element is removed */
+    /* Countdown timer styles */
+    .countdown-container {
+        margin-top: 2rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        color: white;
+        text-transform: uppercase;
+        font-size: 1.2rem;
+    }
+
+    .countdown-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .countdown-item span {
+        font-size: 2rem;
+        font-weight: bold;
+    }
 
     footer {
       position: absolute;
@@ -210,6 +231,15 @@
         max-width: 250px;
       }
 
+      .countdown-container {
+        font-size: 1rem;
+        gap: 15px;
+      }
+
+      .countdown-item span {
+        font-size: 1.5rem;
+      }
+
       footer {
         bottom: calc(90px + env(safe-area-inset-bottom, 20px));
         font-size: 0.9rem;
@@ -238,6 +268,26 @@
         <input type="submit" value="Subscribe" />
         <!-- Removed "Powered by Buttondown" paragraph -->
       </form>
+    </div>
+
+    <!-- Countdown Timer -->
+    <div class="countdown-container" id="countdown">
+      <div class="countdown-item">
+        <span id="days">00</span>
+        <p>Days</p>
+      </div>
+      <div class="countdown-item">
+        <span id="hours">00</span>
+        <p>Hours</p>
+      </div>
+      <div class="countdown-item">
+        <span id="minutes">00</span>
+        <p>Minutes</p>
+      </div>
+      <div class="countdown-item">
+        <span id="seconds">00</span>
+        <p>Seconds</p>
+      </div>
     </div>
   </div>
 
@@ -269,6 +319,54 @@
     // Ensure the glitch image is displayed and logo is correct from the start
     glitchEl.style.display = "block";
     logoEl.src = "https://i.ibb.co/Jj74RR2Z/IMG-9717.png"; // Set the white logo
+
+    // Countdown Timer Logic
+    const countdown = () => {
+      // Set the date we're counting down to
+      const countdownDate = new Date("Aug 9, 2025 12:00:00").getTime();
+
+      // Update the count down every 1 second
+      const x = setInterval(() => {
+
+        // Get today's date and time
+        const now = new Date().getTime();
+
+        // Find the distance between now and the count down date
+        const distance = countdownDate - now;
+
+        // Time calculations for days, hours, minutes and seconds
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        // Display the result in the corresponding elements
+        if (document.getElementById("days")) {
+          document.getElementById("days").innerHTML = String(days).padStart(2, '0');
+        }
+        if (document.getElementById("hours")) {
+          document.getElementById("hours").innerHTML = String(hours).padStart(2, '0');
+        }
+        if (document.getElementById("minutes")) {
+          document.getElementById("minutes").innerHTML = String(minutes).padStart(2, '0');
+        }
+        if (document.getElementById("seconds")) {
+          document.getElementById("seconds").innerHTML = String(seconds).padStart(2, '0');
+        }
+
+        // If the count down is finished, write some text
+        if (distance < 0) {
+          clearInterval(x);
+          const countdownElement = document.getElementById("countdown");
+          if (countdownElement) {
+              countdownElement.innerHTML = "<div>EXPIRED</div>";
+          }
+        }
+      }, 1000);
+    }
+
+    // Call the countdown function when the script loads
+    countdown();
   </script>
 </body>
 </html>
